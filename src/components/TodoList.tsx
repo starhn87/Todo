@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react';
 import TodoListItem from './TodoListItem';
-import './TodoList.scss';
 import { List } from 'react-virtualized';
 import { TodoType } from '../App';
+import styles from './TodoList.module.scss';
+import classnames from 'classnames/bind';
+
+const cx = classnames.bind(styles);
 
 export type TodoListType = {
   todos: TodoType[];
@@ -29,7 +32,7 @@ const TodoList = ({ todos, onRemove, onToggle }: TodoListType) => {
 
   return (
     <List
-      className="TodoList"
+      className={cx('TodoList')}
       width={512}
       height={513}
       rowCount={todos.length}

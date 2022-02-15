@@ -1,6 +1,10 @@
+import React from 'react';
 import { MdAdd } from 'react-icons/md';
-import React, { useCallback, useState } from 'react';
-import './TodoInsert.scss';
+import { useCallback, useState } from 'react';
+import styles from './TodoInsert.module.scss';
+import classnames from 'classnames/bind';
+
+const cx = classnames.bind(styles);
 
 type TodoInsertType = {
   onInsert: (value: string) => void;
@@ -24,7 +28,7 @@ const TodoInsert = ({ onInsert }: TodoInsertType) => {
   );
 
   return (
-    <form className="TodoInsert" onSubmit={onSubmit}>
+    <form className={cx('TodoInsert')} onSubmit={onSubmit}>
       <input
         value={value}
         onChange={onChange}
