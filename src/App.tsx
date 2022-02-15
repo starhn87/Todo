@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
-import {
-  useCallback,
-  useState,
-} from '../node_modules/react/cjs/react.development';
+import React, { useRef, useCallback, useState } from 'react';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import TodoTemplate from './components/TodoTemplate';
+
+export type TodoType = {
+  id: number;
+  text: string;
+  checked: boolean;
+};
 
 const createBulkTodos = () => {
   const arr = [];
@@ -21,7 +23,7 @@ const createBulkTodos = () => {
 };
 
 function App() {
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, setTodos] = useState<TodoType[]>(createBulkTodos);
 
   const nextId = useRef(4);
 

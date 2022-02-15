@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -6,8 +6,21 @@ import {
 } from 'react-icons/md';
 import cn from 'classnames';
 import './TodoListItem.scss';
+import { TodoType } from '../App';
 
-const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
+type TodoListItemType = {
+  todo: TodoType;
+  onRemove: (id: number) => void;
+  onToggle: (id: number) => void;
+  style: CSSProperties;
+};
+
+const TodoListItem = ({
+  todo,
+  onRemove,
+  onToggle,
+  style,
+}: TodoListItemType) => {
   const { id, text, checked } = todo;
 
   return (
